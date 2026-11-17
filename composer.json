@@ -1,0 +1,54 @@
+{
+    "name": "rushphp/contract",
+    "description": "Contracts for RUSH - Registry-driven Unified Shell Helper. Interfaces for tools, commands, input/output and configuration.",
+    "type": "library",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "RUSHphp",
+            "homepage": "https://github.com/rushphp"
+        }
+    ],
+    "keywords": [
+        "rush",
+        "cli",
+        "shell",
+        "contract",
+        "interface",
+        "tool",
+        "registry",
+        "automation"
+    ],
+    "support": {
+        "issues": "https://github.com/rushphp/contract/issues",
+        "source": "https://github.com/rushphp/contract"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rush\\Contract\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.3"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^2.2",
+        "pestphp/pest": "^3.8"
+    },
+    "scripts": {
+        "stan": "phpstan analyse",
+        "test": "pest"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
