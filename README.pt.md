@@ -12,6 +12,8 @@ Contratos que orientam o manager do RUSH e qualquer tool criado para ele. Este
 pacote contém apenas interfaces e tipos de valor pequenos; não possui
 dependências de runtime.
 
+> **Pré-1.0:** releases minor podem incluir mudanças incompatíveis.
+
 ## ✨ Recursos
 
 - **Pronto para o registry**: cada tool expõe um `key()` e `commands()` estáveis.
@@ -76,7 +78,7 @@ final class DeployTool implements ToolInterface
 
     public function version(): string
     {
-        return '1.0.0';
+        return '0.1.0';
     }
 
     /** @return array<string, CommandInterface> */

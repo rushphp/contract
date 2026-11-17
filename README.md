@@ -11,6 +11,8 @@
 Contracts that guide the RUSH manager and every tool built for it. This package
 contains only interfaces and small value types; it has no runtime dependencies.
 
+> **Pre-1.0:** minor releases may include breaking changes.
+
 ## ✨ Features
 
 - **Registry-ready**: every tool exposes a stable `key()` and `commands()`.
@@ -75,7 +77,7 @@ final class DeployTool implements ToolInterface
 
     public function version(): string
     {
-        return '1.0.0';
+        return '0.1.0';
     }
 
     /** @return array<string, CommandInterface> */
