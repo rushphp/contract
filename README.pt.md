@@ -49,6 +49,18 @@ composer require rushphp/contract
 | `Option` | Tipo de valor de uma opção de comando. |
 | `ExitCode` | Códigos de saída estáveis do processo. |
 
+### Semântica de opções
+
+- `takesValue` define se `--name valor` / `--name=valor` é aceito.
+- `default` é aplicado pelo manager quando a opção está ausente.
+- `required` faz o manager rejeitar uma opção ausente.
+- `required` tem precedência sobre `default`.
+
+### Requisitos de uma tool
+
+- Classes de tool devem ser instanciáveis sem argumentos de construtor.
+- `install()` é obrigatório; retorne uma lista vazia quando não houver nada a instalar.
+
 ## 🛠️ Escrevendo uma tool
 
 ```php
