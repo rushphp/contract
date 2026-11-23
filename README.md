@@ -45,15 +45,23 @@ composer require rushphp/contract
 | `OutputInterface` | Standard line/info/success/warning/error output. |
 | `ProvidesConfigInterface` | Side-effect-free configuration defaults. |
 | `ToolManagerInterface` | Attach, boot, run and terminate tools. |
+| `OperatorPolicyInterface` | Optional: opt a tool out of the operator gate. |
 | `Option` | Command option value type. |
 | `ExitCode` | Stable process exit codes. |
 
 ### Option semantics
 
 - `takesValue` defines whether `--name value` / `--name=value` is accepted.
-- `default` is applied by the manager when the option is absent.
+- `default` is applied by the manager when the option is absent (string, int or bool).
 - `required` makes the manager reject a missing option.
 - `required` takes precedence over `default`.
+- `short` maps a single-character flag (`-n`), including clusters (`-abc`).
+- `repeatable` collects every occurrence as a list, read via `InputInterface::strings()`.
+- `InputInterface::hasValue()` tells whether an option is present with a value.
+- `OutputInterface::write()` writes without a trailing newline.
+
+Tools that do not implement `OperatorPolicyInterface` require a configured
+operator for their commands, preserving the default audit behaviour.
 
 ### Tool requirements
 

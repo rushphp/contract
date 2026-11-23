@@ -46,15 +46,23 @@ composer require rushphp/contract
 | `OutputInterface` | Saída padronizada de linha/info/sucesso/aviso/erro. |
 | `ProvidesConfigInterface` | Defaults de configuração sem efeitos colaterais. |
 | `ToolManagerInterface` | Anexar, inicializar, executar e encerrar tools. |
+| `OperatorPolicyInterface` | Opcional: dispensa a tool do gate de operador. |
 | `Option` | Tipo de valor de uma opção de comando. |
 | `ExitCode` | Códigos de saída estáveis do processo. |
 
 ### Semântica de opções
 
 - `takesValue` define se `--name valor` / `--name=valor` é aceito.
-- `default` é aplicado pelo manager quando a opção está ausente.
+- `default` é aplicado pelo manager quando a opção está ausente (string, int ou bool).
 - `required` faz o manager rejeitar uma opção ausente.
 - `required` tem precedência sobre `default`.
+- `short` mapeia uma flag de um caractere (`-n`), incluindo clusters (`-abc`).
+- `repeatable` acumula cada ocorrência em uma lista, lida via `InputInterface::strings()`.
+- `InputInterface::hasValue()` informa se a opção está presente com valor.
+- `OutputInterface::write()` escreve sem quebra de linha.
+
+Tools que não implementam `OperatorPolicyInterface` exigem um operador
+configurado para seus comandos, preservando o comportamento padrão de auditoria.
 
 ### Requisitos de uma tool
 
