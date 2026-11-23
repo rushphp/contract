@@ -26,3 +26,11 @@ it('accepts a default value', function (): void {
 
     expect($option->default)->toBe('text');
 });
+
+it('accepts an integer default, a short name and repeatable', function (): void {
+    $option = new Option('retries', 'Retries', true, 3, false, 'count', 'r', true);
+
+    expect($option->default)->toBe(3)
+        ->and($option->short)->toBe('r')
+        ->and($option->repeatable)->toBeTrue();
+});

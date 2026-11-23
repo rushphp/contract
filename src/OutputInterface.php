@@ -5,6 +5,8 @@ namespace Rush\Contract;
 
 interface OutputInterface
 {
+    public function write(string $text): void;
+
     public function line(string $text = ''): void;
 
     public function info(string $text): void;
